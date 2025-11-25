@@ -776,7 +776,7 @@
     </section>
 
     <!-- 3 BENEFITS -->
-    <section class="section" style="padding-bottom: 3rem;">
+    <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
         <div class="benefits-grid">
             <div class="benefit-card">
                 <span class="material-icons">cloud_off</span>
@@ -794,6 +794,40 @@
                 <p>Most fixes cost £0–£20. Not hundreds on new gear you don't need.</p>
             </div>
         </div>
+    </section>
+
+
+        <!-- HOW IT WORKS -->
+    <section class="how-section section" id="how-it-works" 
+    style="padding-top:3rem; padding-bottom:3rem; text-align:center;">
+
+        <h2 style="margin-bottom:1rem;">How It Works</h2>
+        <div class="section-divider"></div>
+
+        <ol style="
+            margin: 2rem auto 0;
+            padding: 0;
+            max-width: 40rem;
+            text-align:center;
+            line-height: 2;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            list-style-position: inside;
+        ">
+            <li><strong>Rent</strong> the kit (£50 + refundable £175 deposit)</li>
+            <li><strong>Plug in</strong> the mic → go to <code>measurely.local:5000</code></li>
+            <li><strong>Measure</strong> your room. Dave reads the sweep.</li>
+            <li><strong>Fix</strong> your room with 3 super-simple nudges.</li>
+            <li><strong>Return</strong> using the prepaid label.</li>
+        </ol>
+
+        <div style="margin-top:2.5rem;">
+            <a href="https://buy.stripe.com/5kQeVcdL75s11AKcWw4ZG00" 
+            class="btn btn-primary">
+                Rent the Kit – £50
+            </a>
+        </div>
+
     </section>
 
     <!-- DAVE EXPLAINER -->
@@ -844,7 +878,8 @@
     </section>
 
     <!-- SIMPLE SETUP -->
-    <section class="setup-section">
+    <section class="setup-section" style="padding-top:3rem; padding-bottom:3rem;">
+
         <h2>Simple, No-Internet Setup</h2>
         <div class="section-divider"></div>
         <p style="max-width:40rem;margin:1rem auto;color:var(--text-secondary);font-size:1.05rem;">
@@ -853,7 +888,8 @@
         </p>
 
         <div class="setup-grid">
-            <img src="qrcode.svg" alt="Measurely QR Code">
+            <img src="qrcode.svg" alt="Measurely QR Code" style="width:175px;">
+
             <ol>
                 <li><strong>Power on</strong> the Measurely box</li>
                 <li><strong>Connect to WiFi:</strong> MeasurelyConnect</li>
@@ -868,16 +904,30 @@
         </div>
     </section>
 
-    <!-- WHAT YOU SEE -->
-    <section class="preview-section section">
-        <h2>What You See When You Connect</h2>
+    <section class="preview-section section" style="padding-top:4rem; padding-bottom:4rem;">
+        <h2>Use It On Any Device</h2>
         <div class="section-divider"></div>
-        <p>
-            No apps. No accounts. No downloads.
-            Just open your browser and the Measurely interface appears instantly.
+
+        <p style="margin-bottom:2rem;">
+            Accessible from any device with a browser and Wi-Fi.
         </p>
-        <img src="laptopmobile.svg" alt="Measurely interface on laptop and mobile">
+
+        <img src="laptopmobile.svg"
+            alt="Measurely interface on laptop and mobile"
+            style="
+                width:100%;
+                max-width:700px;
+                margin:0 auto;
+                display:block;
+
+                /* REMOVE the card look */
+                border:none;
+                background:none;
+                padding:0;
+                box-shadow:none;
+            ">
     </section>
+
 
     <!-- WHAT'S IN THE BOX -->
     <section class="box-section section">
@@ -890,22 +940,6 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how-section section" id="how-it-works">
-        <h2>How It Works</h2>
-        <ol>
-            <li><strong>Rent</strong> the kit (£50 + refundable £175 deposit)</li>
-            <li><strong>Plug in</strong> the mic → go to <code>measurely.local:5000</code></li>
-            <li><strong>Measure</strong> your room. Dave reads the sweep.</li>
-            <li><strong>Fix</strong> your room with 3 super-simple nudges.</li>
-            <li><strong>Return</strong> using the prepaid label.</li>
-        </ol>
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <a href="https://buy.stripe.com/5kQeVcdL75s11AKcWw4ZG00" class="btn btn-primary">
-                Rent the Kit – £50
-            </a>
-        </div>
-    </section>
 
     <!-- REVIEWS -->
     <section class="reviews-section section">
@@ -932,9 +966,11 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2025 Matt Shepherd</p>
+        <p>© 2025 Measurely Co</p>
         <p>Built because REW made my head hurt. Dave doesn't judge.</p>
+        <p>Email: measurely.uk@gmail.com</p>
     </footer>
+
 
 </body>
 
