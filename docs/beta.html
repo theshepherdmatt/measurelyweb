@@ -1,82 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Measurely – Beta Test Waitlist</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
     <style>
         /* ============================================================
     MEASURELY – LANDING PAGE DARK REDESIGN (2025)
     Matching App Aesthetic: Dark Glassmorphism
     ============================================================ */
-
         :root {
             /* Typography */
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-
             /* Dark Backgrounds matching app */
             --bg-darkest: #0f1419;
             --bg-dark: #1a1f2e;
             --bg-dark-elevated: #232938;
             --bg-dark-card: #1e2433;
-
             /* Purple Brand */
             --purple-400: #c084fc;
             --purple-500: #a855f7;
             --purple-600: #9333ea;
             --purple-700: #7c3aed;
-
             /* Gradient */
             --gradient-purple: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-
             /* Status Colors */
             --status-green: #22c55e;
             --status-blue: #3b82f6;
             --status-yellow: #f59e0b;
             --status-red: #ef4444;
-
             /* Text */
             --text-primary: #f9fafb;
             --text-secondary: #d1d5db;
             --text-tertiary: #9ca3af;
-
             /* Borders */
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-default: rgba(255, 255, 255, 0.12);
             --border-strong: rgba(255, 255, 255, 0.18);
             --border-purple: rgba(139, 92, 246, 0.3);
-
             /* Glass */
             --glass-light: rgba(255, 255, 255, 0.05);
             --glass-medium: rgba(255, 255, 255, 0.08);
             --glass-strong: rgba(255, 255, 255, 0.12);
             --glass-dark: rgba(0, 0, 0, 0.3);
-
             /* Shadows */
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
             --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
             --glow-purple: 0 0 24px rgba(139, 92, 246, 0.4);
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         html {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         body {
             font-family: var(--font-main);
             background: var(--bg-dark);
@@ -86,7 +71,6 @@
             position: relative;
             overflow-x: hidden;
         }
-
         /* Animated gradient background element */
         body::before {
             content: '';
@@ -100,23 +84,18 @@
             z-index: 0;
             pointer-events: none;
         }
-
         @keyframes gradientShift {
-
             0%,
             100% {
                 transform: translate(0, 0);
             }
-
             33% {
                 transform: translate(5%, 5%);
             }
-
             66% {
                 transform: translate(-5%, 5%);
             }
         }
-
         /* Ensure content is above background */
         .topbar,
         .hero,
@@ -125,7 +104,6 @@
             position: relative;
             z-index: 1;
         }
-
         /* ============================================================
     HEADER
     ============================================================ */
@@ -143,12 +121,10 @@
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-subtle);
         }
-
         .topbar img {
             height: 2.2rem;
             filter: brightness(1.2);
         }
-
         /* ============================================================
     HERO
     ============================================================ */
@@ -162,7 +138,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -175,11 +150,9 @@
             background-position: center;
             z-index: -1;
         }
-
         .hero-content {
             max-width: 56rem;
         }
-
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -187,14 +160,12 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
-
         .text-gradient {
             background: var(--gradient-purple);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.25rem);
             color: var(--text-secondary);
@@ -202,7 +173,6 @@
             margin: 0 auto 2.5rem;
             line-height: 1.7;
         }
-
         .hero-actions {
             display: flex;
             gap: 1rem;
@@ -210,7 +180,6 @@
             flex-wrap: wrap;
             margin-top: 2rem;
         }
-
         /* ============================================================
     BUTTONS
     ============================================================ */
@@ -227,30 +196,25 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .btn-primary {
             background: var(--gradient-purple);
             color: white;
             box-shadow: var(--shadow-md), var(--glow-purple);
         }
-
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg), 0 0 32px rgba(139, 92, 246, 0.6);
         }
-
         .btn-outline {
             background: transparent;
             border: 2px solid var(--border-strong);
             color: var(--text-primary);
         }
-
         .btn-outline:hover {
             background: var(--glass-light);
             border-color: var(--purple-500);
             color: var(--purple-400);
         }
-
         /* ============================================================
     SECTIONS
     ============================================================ */
@@ -260,13 +224,11 @@
             padding: 5rem 1.5rem;
             text-align: center;
         }
-
         .section h2 {
             font-size: clamp(1.75rem, 4vw, 2.25rem);
             font-weight: 800;
             margin-bottom: 1rem;
         }
-
         .section p {
             font-size: 1.125rem;
             color: var(--text-secondary);
@@ -274,7 +236,6 @@
             max-width: 48rem;
             margin: 0 auto;
         }
-
         .section-divider {
             width: 60px;
             height: 4px;
@@ -282,63 +243,6 @@
             border-radius: 9999px;
             margin: 1.5rem auto 2rem;
         }
-
-        /* ============================================================
-    BENEFITS CARDS
-    ============================================================ */
-        .benefits-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (min-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .benefit-card {
-            background: var(--glass-light);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2rem 1.5rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.2s;
-        }
-
-        .benefit-card:hover {
-            background: var(--glass-medium);
-            border-color: var(--border-purple);
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple), var(--shadow-lg);
-        }
-
-        .benefit-card .material-icons {
-            font-size: 2.5rem;
-            background: var(--gradient-purple);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .benefit-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
         /* ============================================================
     DAVE EXPLAINER (Reusable for main beta content)
     ============================================================ */
@@ -355,9 +259,7 @@
             position: relative;
             overflow: hidden;
             text-align: center;
-            /* Added for the beta page content */
         }
-
         .dave-section::before {
             content: '';
             position: absolute;
@@ -368,33 +270,126 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
             z-index: 0;
         }
-
         .dave-content {
             position: relative;
             z-index: 1;
             max-width: 900px;
             margin: 0 auto;
         }
-
         .dave-section h2 {
             font-size: clamp(1.75rem, 3vw, 2.25rem);
             font-weight: 800;
             margin-bottom: 1rem;
         }
-
         .dave-section h3 {
             font-size: 1.25rem;
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 0.75rem;
         }
-
         .dave-section p {
             margin-bottom: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
         }
-
+        /* ============================================================
+    MAILCHIMP FORM STYLING
+    ============================================================ */
+        #mc_embed_shell {
+            margin: 2.5rem auto 1rem;
+            max-width: 500px;
+        }
+        #mc_embed_signup {
+            background: var(--glass-medium);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-default);
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+        #mc_embed_signup h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        #mc_embed_signup .indicates-required {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+        #mc_embed_signup .asterisk {
+            color: var(--purple-400);
+        }
+        #mc_embed_signup .mc-field-group {
+            margin-bottom: 1.5rem;
+        }
+        #mc_embed_signup label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        #mc_embed_signup input[type="email"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-dark-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: var(--font-main);
+            transition: all 0.2s;
+        }
+        #mc_embed_signup input[type="email"]:focus {
+            outline: none;
+            border-color: var(--purple-500);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+        #mc_embed_signup input[type="email"]::placeholder {
+            color: var(--text-tertiary);
+        }
+        #mc_embed_signup .button {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: var(--gradient-purple);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-md), var(--glow-purple);
+            font-family: var(--font-main);
+        }
+        #mc_embed_signup .button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 32px rgba(139, 92, 246, 0.6);
+        }
+        #mc_embed_signup .clear.foot {
+            margin-top: 1.5rem;
+        }
+        #mc_embed_signup .response {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        #mc_embed_signup #mce-error-response {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--status-red);
+            color: var(--status-red);
+        }
+        #mc_embed_signup #mce-success-response {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid var(--status-green);
+            color: var(--status-green);
+        }
         /* FOOTER */
         footer {
             background: var(--glass-dark);
@@ -405,43 +400,23 @@
             text-align: center;
             margin-top: 5rem;
         }
-
         footer p {
             opacity: 0.8;
             font-size: 0.875rem;
             line-height: 1.8;
             color: var(--text-secondary);
         }
-
         footer p:first-child {
             font-weight: 500;
             color: var(--text-primary);
         }
-
-        /* New Styles for Form Placeholder */
-        .form-placeholder {
-            margin: 2.5rem auto 1rem;
-            padding: 2rem;
-            background: var(--bg-dark-elevated);
-            border: 2px dashed var(--purple-500);
-            border-radius: 1rem;
-            max-width: 450px;
-            color: var(--text-secondary);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            text-align: center;
-        }
     </style>
 </head>
-
 <body>
-
     <a id="top"></a>
-
     <header class="topbar">
         <img src="mainlogo.svg" alt="Measurely Logo">
     </header>
-
     <section class="hero">
         <div class="hero-content">
             <h1>
@@ -459,63 +434,77 @@
             </div>
         </div>
     </section>
-
     <section class="dave-section" id="beta-application">
         <div class="dave-content">
             <h2 style="font-weight:800; margin-bottom:1.5rem;">
                 Find Your Sweet Spot: Be One of the First Two.
             </h2>
             <div class="section-divider"></div>
-
             <p style="max-width:50rem; margin:1.5rem auto;">
                 We are meticulously selecting the first two people to test the Measurely prototype.
                 Your experience will directly <strong>enhance Dave's guidance</strong> to ensure every future user
                 achieves acoustic perfection.
                 This isn't about finding faults—it's about maximizing potential.
             </p>
-
             <h3 style="font-weight:700; margin-top:2.5rem; color:var(--purple-400);">
                 What We Need From You:
             </h3>
-
             <p style="max-width:40rem; margin:0.5rem auto 1.5rem; text-align:center;">
                 A passion for sound quality, honest feedback on your acoustic journey, and the willingness to move a
                 sofa (if Dave says so).
             </p>
-
             <a href="#waitlist-form" class="btn btn-primary" style="margin-top:1rem;">
                 Proceed to Qualification Form
             </a>
         </div>
     </section>
-
     <section class="section" id="waitlist-form" style="padding-top: 3rem;">
         <h2>Join the Exclusive Waitlist</h2>
         <div class="section-divider"></div>
-
         <p style="max-width:40rem; margin:1rem auto 2rem;">
             Enter your email below to secure your spot on the waitlist. We will immediately send you a short, follow-up
             qualification questionnaire to apply for one of the two <strong>Measurely Prototype spots</strong>!
         </p>
-
-        <div class="form-placeholder">
-            [MAILCHIMP/TYPEFORM EMBED CODE GOES HERE]<br>
-            (The actual sign-up form will appear here once you paste the code from your email platform)
+        <div id="mc_embed_shell">
+            <div id="mc_embed_signup">
+                <form
+                    action="https://measurely.us6.list-manage.com/subscribe/post?u=3f4a6eb33500dd00d8cd173ca&amp;id=ab36df4e21&amp;f_id=00edc2e1f0"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                    target="_self" novalidate="">
+                    <div id="mc_embed_signup_scroll">
+                        <h2>Join the Waitlist</h2>
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div id="mce-responses" class="clear foot">
+                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_3f4a6eb33500dd00d8cd173ca_ab36df4e21" tabindex="-1" value="">
+                        </div>
+                        <div class="optionalParent">
+                            <div class="clear foot">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                                    value="Join Waitlist">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </section>
-
     <footer>
         <a href="https://www.facebook.com/profile.php?id=61584386125334" target="_blank" rel="noopener"
             style="display:inline-block; margin-bottom:1.5rem;">
             <img src="fb.svg" alt="Facebook" style="width:50px; height:50px; opacity:0.9;">
         </a>
-
         <p>© 2025 Measurely Co</p>
         <p>Built because REW made my head hurt. Dave doesn't judge.</p>
         <p>Email: measurely.uk@gmail.com</p>
     </footer>
-
 </body>
-
 </html>
