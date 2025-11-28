@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Measurely – Beta Test Waitlist</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+    MEASURELY – LANDING PAGE DARK REDESIGN (2025)
+    Matching App Aesthetic: Dark Glassmorphism
+    ============================================================ */
+
+        :root {
+            /* Typography */
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+            /* Dark Backgrounds matching app */
+            --bg-darkest: #0f1419;
+            --bg-dark: #1a1f2e;
+            --bg-dark-elevated: #232938;
+            --bg-dark-card: #1e2433;
+
+            /* Purple Brand */
+            --purple-400: #c084fc;
+            --purple-500: #a855f7;
+            --purple-600: #9333ea;
+            --purple-700: #7c3aed;
+
+            /* Gradient */
+            --gradient-purple: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+
+            /* Status Colors */
+            --status-green: #22c55e;
+            --status-blue: #3b82f6;
+            --status-yellow: #f59e0b;
+            --status-red: #ef4444;
+
+            /* Text */
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+
+            /* Borders */
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-default: rgba(255, 255, 255, 0.12);
+            --border-strong: rgba(255, 255, 255, 0.18);
+            --border-purple: rgba(139, 92, 246, 0.3);
+
+            /* Glass */
+            --glass-light: rgba(255, 255, 255, 0.05);
+            --glass-medium: rgba(255, 255, 255, 0.08);
+            --glass-strong: rgba(255, 255, 255, 0.12);
+            --glass-dark: rgba(0, 0, 0, 0.3);
+
+            /* Shadows */
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+            --glow-purple: 0 0 24px rgba(139, 92, 246, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background element */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(5%, 5%);
+            }
+
+            66% {
+                transform: translate(-5%, 5%);
+            }
+        }
+
+        /* Ensure content is above background */
+        .topbar,
+        .hero,
+        section,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================================
+    HEADER
+    ============================================================ */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.3rem 1.75rem;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            background: var(--glass-dark);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .topbar img {
+            height: 2.2rem;
+            filter: brightness(1.2);
+        }
+
+        /* ============================================================
+    HERO
+    ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 1.5rem 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to bottom, rgba(15, 20, 25, 0.7), rgba(26, 31, 46, 0.9)), url('heromain.svg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 56rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .text-gradient {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 42rem;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* ============================================================
+    BUTTONS
+    ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--gradient-purple);
+            color: white;
+            box-shadow: var(--shadow-md), var(--glow-purple);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 32px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-strong);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass-light);
+            border-color: var(--purple-500);
+            color: var(--purple-400);
+        }
+
+        /* ============================================================
+    SECTIONS
+    ============================================================ */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-purple);
+            border-radius: 9999px;
+            margin: 1.5rem auto 2rem;
+        }
+
+        /* ============================================================
+    BENEFITS CARDS
+    ============================================================ */
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-card {
+            background: var(--glass-light);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s;
+        }
+
+        .benefit-card:hover {
+            background: var(--glass-medium);
+            border-color: var(--border-purple);
+            transform: translateY(-4px);
+            box-shadow: var(--glow-purple), var(--shadow-lg);
+        }
+
+        .benefit-card .material-icons {
+            font-size: 2.5rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+    DAVE EXPLAINER (Reusable for main beta content)
+    ============================================================ */
+        .dave-section {
+            background: var(--glass-medium);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-default);
+            border-radius: 1.5rem;
+            padding: 4rem 2rem;
+            margin: 5rem auto;
+            max-width: 1100px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            /* Added for the beta page content */
+        }
+
+        .dave-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            z-index: 0;
+        }
+
+        .dave-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .dave-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .dave-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .dave-section p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--glass-dark);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        footer p:first-child {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* New Styles for Form Placeholder */
+        .form-placeholder {
+            margin: 2.5rem auto 1rem;
+            padding: 2rem;
+            background: var(--bg-dark-elevated);
+            border: 2px dashed var(--purple-500);
+            border-radius: 1rem;
+            max-width: 450px;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a id="top"></a>
+
+    <header class="topbar">
+        <img src="mainlogo.svg" alt="Measurely Logo">
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Unlock Your System's<br>
+                <span class="text-gradient">True Potential</span>
+            </h1>
+            <p>
+                An exclusive opportunity for early adopters to shape the future of room acoustics with Dave.
+                Only <strong>2 prototype kits</strong> are available now.
+            </p>
+            <div class="hero-actions">
+                <a href="#beta-application" class="btn btn-primary btn-lg">
+                    Apply for Early Access
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="dave-section" id="beta-application">
+        <div class="dave-content">
+            <h2 style="font-weight:800; margin-bottom:1.5rem;">
+                Find Your Sweet Spot: Be One of the First Two.
+            </h2>
+            <div class="section-divider"></div>
+
+            <p style="max-width:50rem; margin:1.5rem auto;">
+                We are meticulously selecting the first two people to test the Measurely prototype.
+                Your experience will directly <strong>enhance Dave's guidance</strong> to ensure every future user
+                achieves acoustic perfection.
+                This isn't about finding faults—it's about maximizing potential.
+            </p>
+
+            <h3 style="font-weight:700; margin-top:2.5rem; color:var(--purple-400);">
+                What We Need From You:
+            </h3>
+
+            <p style="max-width:40rem; margin:0.5rem auto 1.5rem; text-align:center;">
+                A passion for sound quality, honest feedback on your acoustic journey, and the willingness to move a
+                sofa (if Dave says so).
+            </p>
+
+            <a href="#waitlist-form" class="btn btn-primary" style="margin-top:1rem;">
+                Proceed to Qualification Form
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="waitlist-form" style="padding-top: 3rem;">
+        <h2>Join the Exclusive Waitlist</h2>
+        <div class="section-divider"></div>
+
+        <p style="max-width:40rem; margin:1rem auto 2rem;">
+            Enter your email below to secure your spot on the waitlist. We will immediately send you a short, follow-up
+            qualification questionnaire to apply for one of the two <strong>Measurely Prototype spots</strong>!
+        </p>
+
+        <div class="form-placeholder">
+            [MAILCHIMP/TYPEFORM EMBED CODE GOES HERE]<br>
+            (The actual sign-up form will appear here once you paste the code from your email platform)
+        </div>
+
+    </section>
+
+    <footer>
+        <a href="https://www.facebook.com/profile.php?id=61584386125334" target="_blank" rel="noopener"
+            style="display:inline-block; margin-bottom:1.5rem;">
+            <img src="fb.svg" alt="Facebook" style="width:50px; height:50px; opacity:0.9;">
+        </a>
+
+        <p>© 2025 Measurely Co</p>
+        <p>Built because REW made my head hurt. Dave doesn't judge.</p>
+        <p>Email: measurely.uk@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>
