@@ -348,56 +348,58 @@
         /* ============================================================
    DAVE EXPLAINER
    ============================================================ */
-        .dave-section {
-            background: var(--glass-medium);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-default);
-            border-radius: 1.5rem;
-            padding: 4rem 2rem;
-            margin: 5rem auto;
-            max-width: 1100px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
+    .room-guide-section {
+        background: var(--glass-medium);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border-default);
+        border-radius: 1.5rem;
+        padding: 4rem 2rem;
+        margin: 5rem auto;
+        max-width: 1100px;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .room-guide-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.1),
+            rgba(139, 92, 246, 0.1)
+        );
+        z-index: 0;
+    }
+    
+    .room-guide-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .room-guide-section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+    
+    .room-guide-section h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .room-guide-section p {
+        margin-bottom: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
 
-        .dave-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            z-index: 0;
-        }
-
-        .dave-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .dave-section h2 {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .dave-section h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .dave-section p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
 
         /* Code comparison */
         .code-comparison {
