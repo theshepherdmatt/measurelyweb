@@ -740,6 +740,87 @@
             font-weight: 500;
             color: var(--text-primary);
         }
+
+        /* HOW IT WORKS – ICON FIX */
+        .how-icon {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 1.25rem;
+            border-radius: 0.75rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--glass-light);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-md);
+        }
+
+        .how-icon img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            opacity: 0.9;
+        }
+
+        /* HOW IT WORKS – VISUAL STRIP (4 ACROSS) */
+        .how-visual-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .how-step {
+            text-align: center;
+        }
+
+        .how-step img {
+            width: 100%;
+            max-width: 240px;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .how-step h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .how-step p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .how-footnote {
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .how-cta {
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .how-visual-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .how-visual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
     </style>
 </head>
 
@@ -765,14 +846,11 @@
     </section>
 
     <!-- WHAT IS MEASURELY -->
-    <section class="section">
+    <section class="section" style="padding-bottom:2rem;">
         <h2>What Is Measurely?</h2>
         <div class="section-divider"></div>
         <p>
-            Measurely is a room acoustics measurement kit that checks what your room is doing to your sound.
-        </p>
-        <p>
-            It confirms what you’ve already got right, and highlights the small adjustments that are actually worth making.
+            Measurely is a room acoustics measurement kit that checks what your room is doing to your sound — confirming what you’ve already got right, and highlighting the small adjustments that are actually worth making.
         </p>
     </section>
 
@@ -798,103 +876,68 @@
         </div>
     </section>
 
+    <!-- HOW IT WORKS – VISUAL STRIP -->
+    <section class="section how-visual-section" id="how-it-works">
 
-    <!-- HOW IT WORKS -->
-    <section class="how-section section" id="how-it-works"
-    style="padding-top:3rem; padding-bottom:3rem; text-align:center;">
-
-        <h2 style="margin-bottom:1rem;">How It Works</h2>
+        <h2>How It Works</h2>
         <div class="section-divider"></div>
 
-        <div class="glass-card" style="
-            max-width: 44rem;
-            margin: 2rem auto 0;
-            padding: 2.5rem 2rem;
-        ">
+        <div class="how-visual-grid">
 
-            <ol style="
-                margin: 0;
-                padding: 0;
-                text-align: center;
-                line-height: 2;
-                font-size: 1.1rem;
-                color: var(--text-secondary);
-                list-style-position: inside;
-            ">
-                <li>
-                    <strong>Plug it in.</strong><br>
-                    Connect the mic and power up the Measurely box.
-                </li>
-
-                <li>
-                    <strong>Connect.</strong><br>
-                    Join Measurely’s Wi-Fi and open 
-                    <code>measurely.local:5000</code> on any phone, tablet, or laptop.
-                </li>
-
-                <li>
-                    <strong>Measure.</strong><br>
-                    Run a short sweep while Measurely listens to your room.
-                </li>
-
-                <li>
-                    <strong>Understand.</strong><br>
-                    Measurely turns what it hears into clear, human explanations.
-                </li>
-
-                <li>
-                    <strong>Fix.</strong><br>
-                    Get three simple, practical nudges — things you can do immediately.
-                </li>
-
-                <li>
-                    <strong>Send it back.</strong><br>
-                    Rental includes prepaid return postage and a refundable deposit.
-                </li>
-            </ol>
-
-            <p style="
-                margin-top: 1.5rem;
-                font-size: 0.95rem;
-                color: var(--text-muted);
-            ">
-                Most people are measuring their room within 10 minutes.
-            </p>
-
-            <div style="margin-top:2rem;">
-                <a href="beta.html" class="btn btn-primary">
-                    Join the Waitlist
-                </a>
+            <div class="how-step">
+                <img src="info1.svg" alt="Delivered to your door">
+                <h3>Delivered to your door</h3>
+                <p>Measurely arrives ready to use, with everything you need in the box.</p>
             </div>
 
+            <div class="how-step">
+                <img src="info2.svg" alt="Simple guided setup">
+                <h3>Simple, guided setup</h3>
+                <p>Plug it in, connect once, and follow clear on-screen steps.</p>
+            </div>
+
+            <div class="how-step">
+                <img src="info3.svg" alt="Accurate room analysis">
+                <h3>Accurate room analysis</h3>
+                <p>A short sweep shows what your room is actually doing to your sound.</p>
+            </div>
+
+            <div class="how-step">
+                <img src="info4.svg" alt="Easy return">
+                <h3>Easy return</h3>
+                <p>Prepaid return postage included. No hassle, no stress.</p>
+            </div>
+
+        </div>
+
+        <p class="how-footnote">
+            Most people are measuring their room within 10 minutes.
+        </p>
+
+        <div class="how-cta">
+            <a href="beta.html" class="btn btn-primary">Join the Waitlist</a>
         </div>
 
     </section>
 
 
-    <!-- ROOM-SETUP GUIDE -->
+    <!-- ROOM-SETUP CO-PILOT -->
     <section class="room-guide-section">
         <div class="room-guide-content">
 
             <h2>Your Room-Setup Co-Pilot</h2>
 
             <p>
-                Measurely listens to your room, runs a calibrated sweep, and tells you — calmly and clearly — what’s actually going on.
+                Measurely listens to your room and tells you what’s actually happening — without second-guessing your system or your choices.
             </p>
 
             <p>
-                There’s no jargon and no judgement. Just plain-English explanations and practical steps you can take straight away.
-            </p>
-
-            <h3>What That Means in Practice</h3>
-
-            <p>
-                Instead of throwing graphs and numbers at you, Measurely translates real acoustic data into simple, human advice.
+                The aim isn’t to overwhelm you. It’s to confirm what’s working and point out the few things that are genuinely worth adjusting.
             </p>
 
             <div class="code-comparison">
                 <div class="code-box code-box-red">
-                    <strong>RAW DATA:</strong>
+                    <strong>MEASUREMENT:</strong>
                     • 125Hz peak +8dB<br>
                     • RT60: 0.6s (left wall)<br>
                     • Early reflection at 4.3ms<br>
@@ -904,19 +947,20 @@
                 <div class="arrow">→</div>
 
                 <div class="code-box code-box-green">
-                    <strong>GUIDE SAYS:</strong>
+                    <strong>MEASURELY SAYS:</strong>
                     <span class="typewriter-text">
-                        "Your left speaker is too close. Pull it in 15cm — boominess sorted."
+                        “Your left speaker is too close. Pull it in 15cm — boominess sorted.”
                     </span>
                 </div>
             </div>
 
-            <p>
-                It’s not trying to impress you. It’s just trying to help your room sound better.
+            <p style="margin-top:1.5rem;">
+                No lectures. No theory dumps. Just clear advice you can try straight away.
             </p>
 
         </div>
     </section>
+
 
 
     <!-- SIMPLE SETUP -->
