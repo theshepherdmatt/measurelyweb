@@ -717,28 +717,62 @@
         }
 
         /* ============================================================
-   FOOTER
-   ============================================================ */
+           FOOTER – ATMOSPHERIC SIGN-OFF
+           ============================================================ */
         footer {
-            background: var(--glass-dark);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid var(--border-subtle);
-            padding: 3rem 1.5rem;
+            position: relative;
+            margin-top: 6rem;
+            padding: 4.5rem 1.5rem 3.5rem;
             text-align: center;
-            margin-top: 5rem;
+            overflow: hidden;
+        
+            /* Deep fade-out rather than flat block */
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(26, 31, 46, 0) 0%,
+                    rgba(15, 20, 25, 0.85) 40%,
+                    rgba(15, 20, 25, 1) 100%
+                );
+        
+            border-top: 1px solid var(--border-subtle);
         }
-
+        
+        /* Subtle brand glow – very restrained */
+        footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 120%, rgba(139, 92, 246, 0.22), transparent 45%),
+                radial-gradient(circle at 85% 130%, rgba(99, 102, 241, 0.18), transparent 45%);
+            pointer-events: none;
+        }
+        
+        /* Typography */
         footer p {
-            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+            margin: 0.4rem 0;
             font-size: 0.875rem;
             line-height: 1.8;
-            color: var(--text-secondary);
+            color: var(--text-tertiary);
+            opacity: 0.9;
         }
-
+        
+        /* First line = personality / brand line */
         footer p:first-child {
+            font-size: 1.05rem;
             font-weight: 500;
             color: var(--text-primary);
+            opacity: 0.95;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Email + copyright whisper */
+        footer p:not(:first-child) {
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
         }
 
         /* HOW IT WORKS – ICON FIX */
