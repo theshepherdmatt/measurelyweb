@@ -285,21 +285,71 @@ header, section, footer { position: relative; z-index: 1; }
 /* ============================================================
    REVIEWS
    ============================================================ */
+
+/* ============================================================
+   REVIEWS – EDITORIAL WITH PURPLE ACCENT
+   ============================================================ */
+
 .testimonials {
     display: grid;
-    gap: 1.5rem;
+    gap: 2.5rem;
     margin-top: 3rem;
 }
+
 @media (min-width:640px) {
     .testimonials { grid-template-columns: repeat(2,1fr); }
 }
+
 .testimonial {
-    background: var(--glass);
-    border: 1px solid var(--border-soft);
-    border-radius: .75rem;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-md);
+    position: relative;
+    padding-left: 1.25rem;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
     font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Purple accent bar */
+.testimonial::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+        to bottom,
+        var(--purple-400),
+        var(--purple-600)
+    );
+}
+
+/* Subtle opening quote */
+.testimonial::after {
+    content: "“";
+    position: absolute;
+    left: -0.5rem;
+    top: -0.75rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--purple-500);
+    opacity: 0.15;
+    font-style: normal;
+}
+
+/* Attribution */
+.testimonial span {
+    display: block;
+    margin-top: .75rem;
+    font-style: normal;
+    font-size: .85rem;
+    color: var(--text-muted);
 }
 
 /* ============================================================
@@ -423,7 +473,8 @@ footer p { font-size:.85rem; color:var(--text-muted); }
     <p style="max-width:42rem; margin:0 auto 2.5rem; color:var(--text-secondary);">
         Real situations, familiar outcomes. Names withheld to protect the mildly obsessed.
     </p>
-
+    
+    <!-- Remove this block entirely to eliminate the reviews -->
     <div class="testimonials">
         <div class="testimonial">
             “Thought my speakers were knackered. Turns out it was the carpet.  
@@ -450,7 +501,6 @@ footer p { font-size:.85rem; color:var(--text-muted); }
         </div>
     </div>
 </section>
-
 
 <footer>
     <p>© 2025 Measurely</p>
