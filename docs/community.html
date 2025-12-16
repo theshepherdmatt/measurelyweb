@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Measurely Community & Support</title>
+<title>Measurely – Community & Support</title>
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="dave.svg">
 
 <style>
-<style>
 
 /* ============================================================
-   DESIGN TOKENS
+   DESIGN TOKENS (same as index)
    ============================================================ */
 :root {
     --font-main: 'Inter', system-ui, sans-serif;
@@ -75,7 +75,7 @@ body::before {
 header, section, footer { position: relative; z-index: 1; }
 
 /* ============================================================
-   PRIMITIVES
+   PRIMITIVES (same as index)
    ============================================================ */
 .section {
     max-width: 1100px;
@@ -83,23 +83,27 @@ header, section, footer { position: relative; z-index: 1; }
     padding: 5rem 1.5rem;
 }
 
-.section--centered { text-align: center; }
+.section h1 {
+    font-size: clamp(2.2rem,5vw,3.2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
 
 .section h2 {
-    font-size: clamp(1.8rem,4vw,2.4rem);
+    font-size: clamp(1.7rem,4vw,2.2rem);
     font-weight: 800;
 }
 
 .section p {
     max-width: 48rem;
-    margin: 1rem auto 0;
+    margin: 1rem 0 0;
     color: var(--text-secondary);
 }
 
 .divider {
     width: 60px;
     height: 4px;
-    margin: 1.5rem auto 2.5rem;
+    margin: 1.25rem 0 2rem;
     background: var(--gradient-purple);
     border-radius: 999px;
 }
@@ -114,6 +118,7 @@ header, section, footer { position: relative; z-index: 1; }
     font-weight: 600;
     text-decoration: none;
     transition: .2s ease;
+    gap: .5rem;
 }
 .btn-primary {
     background: var(--gradient-purple);
@@ -129,7 +134,7 @@ header, section, footer { position: relative; z-index: 1; }
 .btn-outline:hover { background: var(--glass); }
 
 /* ============================================================
-   HEADER
+   HEADER (same as index)
    ============================================================ */
 .topbar {
     position: fixed;
@@ -143,216 +148,7 @@ header, section, footer { position: relative; z-index: 1; }
 .topbar img { height: 2.2rem; }
 
 /* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 1.5rem 60px;
-    text-align: center;
-}
-.hero::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(to bottom,rgba(15,20,25,.7),rgba(26,31,46,.9)),
-        url("heromain.svg") center/cover;
-    z-index:-1;
-}
-.hero h1 {
-    font-size: clamp(2.6rem,6vw,4.6rem);
-    line-height: 1.1;
-}
-.hero p { font-size: 1.2rem; }
-.hero-actions { margin-top: 2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-
-/* ============================================================
-   BENEFITS
-   ============================================================ */
-.benefits {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-@media (min-width: 768px) {
-    .benefits { grid-template-columns: repeat(3,1fr); }
-}
-.benefit {
-    background: var(--glass);
-    border: 1px solid var(--border-soft);
-    border-radius: 1rem;
-    padding: 2rem 1.5rem;
-    box-shadow: var(--shadow-md);
-    transition: .2s;
-}
-.benefit:hover { transform: translateY(-4px); }
-.benefit .material-icons {
-    font-size: 2.4rem;
-    background: var(--gradient-purple);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-/* ============================================================
-   HOW IT WORKS – FLOATING STEPS (NO CARDS)
-   ============================================================ */
-
-.how-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-
-    max-width: 1100px;
-    margin: 3.5rem auto 0;
-}
-
-/* Step wrapper (no card visuals) */
-.how-card {
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Illustration */
-.how-card img {
-    width: 100%;
-    max-width: 220px;
-    margin-bottom: 1.5rem;
-
-    /* optional subtle lift */
-    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.25));
-}
-
-/* Heading */
-.how-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-}
-
-/* Copy */
-.how-card p {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    max-width: 220px;
-    margin: 0 auto;
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-    .how-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .how-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-
-
-/* ============================================================
-   SETUP
-   ============================================================ */
-.setup {
-    background: var(--glass);
-    border: 1px solid rgba(139,92,246,.3);
-    border-radius: 1.5rem;
-    padding: 4rem 2rem;
-    box-shadow: var(--shadow-lg);
-    text-align: center;
-}
-.setup-grid {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-.setup ol { text-align: left; max-width: 24rem; }
-
-/* ============================================================
-   REVIEWS
-   ============================================================ */
-
-/* ============================================================
-   REVIEWS – EDITORIAL WITH PURPLE ACCENT
-   ============================================================ */
-
-.testimonials {
-    display: grid;
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
-
-@media (min-width:640px) {
-    .testimonials { grid-template-columns: repeat(2,1fr); }
-}
-
-.testimonial {
-    position: relative;
-    padding-left: 1.25rem;
-
-    background: none;
-    border: none;
-    box-shadow: none;
-
-    font-style: italic;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-/* Purple accent bar */
-.testimonial::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.2rem;
-    bottom: 0.2rem;
-    width: 3px;
-    border-radius: 999px;
-    background: linear-gradient(
-        to bottom,
-        var(--purple-400),
-        var(--purple-600)
-    );
-}
-
-/* Subtle opening quote */
-.testimonial::after {
-    content: "“";
-    position: absolute;
-    left: -0.5rem;
-    top: -0.75rem;
-    font-size: 3rem;
-    line-height: 1;
-    color: var(--purple-500);
-    opacity: 0.15;
-    font-style: normal;
-}
-
-/* Attribution */
-.testimonial span {
-    display: block;
-    margin-top: .75rem;
-    font-style: normal;
-    font-size: .85rem;
-    color: var(--text-muted);
-}
-
-/* ============================================================
-   FOOTER
+   FOOTER (same as index)
    ============================================================ */
 footer {
     padding: 4.5rem 1.5rem 3.5rem;
@@ -361,6 +157,164 @@ footer {
     border-top: 1px solid var(--border-soft);
 }
 footer p { font-size:.85rem; color:var(--text-muted); }
+
+/* ============================================================
+   COMMUNITY PAGE (NEW, SMALL + CLEAN)
+   ============================================================ */
+
+.page-top {
+    padding-top: 8.5rem; /* clears fixed topbar */
+    padding-bottom: 3rem;
+}
+
+.hub {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 2.25rem;
+}
+
+@media (max-width: 900px) {
+    .hub { grid-template-columns: 1fr; }
+}
+
+.panel {
+    background: var(--glass);
+    border: 1px solid var(--border-soft);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.panel--accent {
+    border: 1px solid rgba(139,92,246,.35);
+}
+
+.panel h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: .5rem;
+}
+
+.panel p {
+    margin-top: .5rem;
+    color: var(--text-secondary);
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .25rem;
+}
+
+.icon-title .material-icons {
+    font-size: 1.8rem;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quicklist {
+    list-style: none;
+    margin-top: 1.25rem;
+    display: grid;
+    gap: .75rem;
+}
+
+.quicklist li {
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    color: var(--text-secondary);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    margin-top: .45rem;
+    background: rgba(168,85,247,.8);
+    box-shadow: 0 0 0 3px rgba(168,85,247,.12);
+    flex: 0 0 auto;
+}
+
+.cta-row {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.mini-steps {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.step {
+    padding: 1rem 1rem 1rem 1.1rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.06);
+}
+
+.step strong {
+    display: block;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: .25rem;
+}
+
+.kbd {
+    display: inline-block;
+    padding: .15rem .45rem;
+    border-radius: .45rem;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.25);
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    color: var(--text-primary);
+}
+
+.strip {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+    .strip { grid-template-columns: 1fr; }
+}
+
+.strip .panel { padding: 1.6rem; }
+
+.note {
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px dashed rgba(168,85,247,.35);
+    background: rgba(168,85,247,.06);
+    color: var(--text-secondary);
+}
+
+.breadcrumb {
+    margin-top: 1.75rem;
+    display: inline-flex;
+    gap: .75rem;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: .9rem;
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.breadcrumb a:hover { border-bottom-color: rgba(168,85,247,.7); }
 
 </style>
 </head>
@@ -371,149 +325,162 @@ footer p { font-size:.85rem; color:var(--text-muted); }
     <img src="mainlogo.svg" alt="Measurely">
 </header>
 
-<!-- INTRO -->
-<section class="section section--centered" style="padding-top:9rem">
-    <h2>Your Measurely Co-Pilot</h2>
+<section class="section page-top">
+    <h1>Community & Support</h1>
     <div class="divider"></div>
 
-    <p>
-        Measurely isn’t here to tell you your system is wrong.
-        It’s here to help you understand what your room is doing —
-        and what’s actually worth changing.
+    <p style="max-width:56rem">
+        Welcome — this is the “help me get it right” corner of Measurely.
+        No gatekeeping, no jargon Olympics, and definitely no “just upgrade your amp” answers.
+        I’m your <strong>Measurely Co-Pilot</strong> — post what you’re seeing, and we’ll work it out.
     </p>
 
-    <p>
-        When you want a second opinion, a bit of reassurance,
-        or just someone to sanity-check an idea,
-        the Measurely community is there.
-    </p>
-</section>
+    <div class="hub">
 
-<!-- DISCORD -->
-<section class="section">
-    <div class="benefit">
-        <span class="material-icons">chat</span>
-        <h3>Measurely Discord</h3>
+        <!-- MAIN: DISCORD -->
+        <div class="panel panel--accent">
+            <div class="icon-title">
+                <span class="material-icons">chat</span>
+                <h3 style="margin:0">Join the Discord (best place for help)</h3>
+            </div>
 
-        <p>
-            The Discord server is the heart of Measurely support.
-            Share your sweep results, ask questions,
-            or get calm, practical advice from people who’ve been there.
-        </p>
-
-        <ul style="margin-top:1rem; color:var(--text-secondary)">
-            <li>No gatekeeping</li>
-            <li>No pressure to upgrade equipment</li>
-            <li>Plain-English explanations</li>
-        </ul>
-
-        <div style="margin-top:1.5rem">
-            <a href="https://discord.gg/YOUR_INVITE" class="btn btn-primary">
-                Join the Measurely Discord
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- SWEEPS -->
-<section class="section section--centered">
-    <h2>Your sweep results</h2>
-    <div class="divider"></div>
-
-    <p>
-        Every Measurely session generates clear, shareable sweep scores.
-        You can download them, compare them,
-        or post them directly to the community for feedback.
-    </p>
-
-    <div class="benefits" style="margin-top:2.5rem">
-        <div class="benefit">
-            <span class="material-icons">download</span>
-            <h3>Download</h3>
             <p>
-                Export your sweep scores directly from Measurely.
+                Share your sweep results, ask a question, or get a second opinion before you start moving furniture.
+                It’s friendly, practical, and built for normal humans.
+            </p>
+
+            <ul class="quicklist">
+                <li><span class="dot"></span><span><strong>Post your sweep scores</strong> and we’ll help interpret what matters.</span></li>
+                <li><span class="dot"></span><span><strong>Get simple next steps</strong> — speaker position, seating, rugs, reflections, bass traps… whatever’s relevant.</span></li>
+                <li><span class="dot"></span><span><strong>Stay sane</strong> — we’ll stop you chasing nonsense tweaks.</span></li>
+            </ul>
+
+            <div class="cta-row">
+                <a href="https://discord.gg/YOUR_INVITE" class="btn btn-primary">
+                    <span class="material-icons" style="font-size:1.2rem">open_in_new</span>
+                    Join the Discord
+                </a>
+                <a href="#sharing" class="btn btn-outline">
+                    <span class="material-icons" style="font-size:1.2rem">share</span>
+                    How to share sweeps
+                </a>
+            </div>
+
+            <div class="note">
+                <strong style="color:var(--text-primary)">Tip:</strong>
+                If you’re not sure what to post, start with your room size, speaker model, listening distance, and your latest sweep scores.
+                That’s enough for useful advice.
+            </div>
+        </div>
+
+        <!-- SIDE: QUICK START -->
+        <div class="panel">
+            <div class="icon-title">
+                <span class="material-icons">rocket_launch</span>
+                <h3 style="margin:0">Quick start</h3>
+            </div>
+
+            <p>Three steps. No drama.</p>
+
+            <div class="mini-steps">
+                <div class="step">
+                    <strong>1) Run a sweep</strong>
+                    Use the Measurely interface and do a normal left/right measurement.
+                </div>
+                <div class="step">
+                    <strong>2) Export your scores</strong>
+                    Hit <span class="kbd">Download</span> / <span class="kbd">Export</span> on your results page.
+                </div>
+                <div class="step">
+                    <strong>3) Share in Discord</strong>
+                    Drop the file/screenshot in the results channel and ask one question.
+                </div>
+            </div>
+
+            <div class="cta-row" style="margin-top:1.25rem">
+                <a href="index.html" class="btn btn-outline">
+                    <span class="material-icons" style="font-size:1.2rem">arrow_back</span>
+                    Back to Measurely
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STRIP: SHARING / FB / EXPECTATIONS -->
+    <div id="sharing" class="strip">
+
+        <div class="panel">
+            <div class="icon-title">
+                <span class="material-icons">download</span>
+                <h3 style="margin:0">Downloading your sweep scores</h3>
+            </div>
+
+            <p>
+                From your results screen, download/export your sweep summary.
+                If you’re on a phone, a screenshot is fine too.
+            </p>
+
+            <p style="margin-top:.75rem">
+                Best formats to share:
+                <br>
+                <span class="kbd">CSV</span> <span class="kbd">PNG</span> <span class="kbd">Summary screenshot</span>
             </p>
         </div>
 
-        <div class="benefit">
-            <span class="material-icons">share</span>
-            <h3>Share</h3>
+        <div class="panel">
+            <div class="icon-title">
+                <span class="material-icons">forum</span>
+                <h3 style="margin:0">What to post for good help</h3>
+            </div>
+
+            <ul class="quicklist" style="margin-top:.75rem">
+                <li><span class="dot"></span><span>Your sweep scores (or screenshot)</span></li>
+                <li><span class="dot"></span><span>Room size + listening distance</span></li>
+                <li><span class="dot"></span><span>Speaker placement (rough measurements)</span></li>
+                <li><span class="dot"></span><span>One sentence: what sounds wrong?</span></li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="icon-title">
+                <span class="material-icons">groups</span>
+                <h3 style="margin:0">Facebook & other places</h3>
+            </div>
+
             <p>
-                Post results in Discord for a second opinion.
+                Prefer Facebook? No worries — we’ll share tips and examples there too,
+                and point people towards the right fixes (not new boxes).
             </p>
+
+            <div class="cta-row">
+                <a href="https://facebook.com/YOURPAGE" class="btn btn-outline">
+                    <span class="material-icons" style="font-size:1.2rem">open_in_new</span>
+                    Measurely on Facebook
+                </a>
+            </div>
         </div>
 
-        <div class="benefit">
-            <span class="material-icons">insights</span>
-            <h3>Improve</h3>
-            <p>
-                Re-measure after changes and see what actually helped.
-            </p>
-        </div>
     </div>
-</section>
 
-<!-- FACEBOOK -->
-<section class="section">
-    <div class="benefit">
-        <span class="material-icons">groups</span>
-        <h3>Facebook & wider community</h3>
-
-        <p>
-            Measurely also lives alongside existing hi-fi communities.
-            We share tips, examples, and real-world results
-            across selected Facebook groups.
-        </p>
-
-        <div style="margin-top:1.5rem">
-            <a href="https://facebook.com/YOURPAGE" class="btn btn-outline">
-                Measurely on Facebook
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- REASSURANCE -->
-<section class="section section--centered">
-    <h2>We’re here to help</h2>
-    <div class="divider"></div>
-
-    <p>
-        You don’t need perfect graphs.
-        You don’t need to understand every acronym.
-    </p>
-
-    <p>
-        If something sounds off,
-        Measurely — and the community behind it —
-        will help you work out why.
-    </p>
-
-    <div style="margin-top:2.5rem">
-        <a href="index.html" class="btn btn-outline">
-            Back to Measurely
-        </a>
+    <div class="breadcrumb">
+        <a href="index.html">Measurely</a>
+        <span style="opacity:.6">/</span>
+        <span>Community</span>
     </div>
 </section>
 
 <footer>
     <div style="max-width:680px; margin:0 auto; text-align:center">
-
-        <p style="margin-bottom:2rem; font-size:1rem; color:var(--text-secondary)">
-            Need a second opinion?<br>
-            The Measurely community has your back.
+        <p style="margin-bottom:1.25rem; font-size:1rem; color:var(--text-secondary)">
+            Want help without the ego? You’re in the right place.
         </p>
-
         <p style="font-size:.85rem; color:var(--text-muted)">
             © 2025 Measurely · Built because REW made my head hurt
         </p>
-
         <p style="font-size:.85rem; color:var(--text-muted)">
-            <a href="mailto:info@measurely.uk" style="color:inherit; text-decoration:none">
-                info@measurely.uk
-            </a>
+            <a href="mailto:info@measurely.uk" style="color:inherit; text-decoration:none">info@measurely.uk</a>
         </p>
-
     </div>
 </footer>
 
