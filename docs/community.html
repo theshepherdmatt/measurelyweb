@@ -10,7 +10,358 @@
 <link rel="icon" type="image/svg+xml" href="dave.svg">
 
 <style>
-/* Reuse the EXACT same style block from index.html */
+<style>
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+    --font-main: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --bg-darkest: #0f1419;
+    --bg-dark: #1a1f2e;
+    --bg-elevated: #232938;
+
+    --purple-400: #c084fc;
+    --purple-500: #a855f7;
+    --purple-600: #9333ea;
+
+    --gradient-purple: linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7);
+
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+
+    --border-soft: rgba(255,255,255,.08);
+    --border-strong: rgba(255,255,255,.15);
+
+    --glass: rgba(255,255,255,.06);
+
+    --shadow-md: 0 8px 24px rgba(0,0,0,.4);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,.5);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Ambient background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(139,92,246,.15), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(99,102,241,.12), transparent 50%);
+    animation: float 20s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+@keyframes float {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(4%,4%); }
+}
+
+header, section, footer { position: relative; z-index: 1; }
+
+/* ============================================================
+   PRIMITIVES
+   ============================================================ */
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+.section--centered { text-align: center; }
+
+.section h2 {
+    font-size: clamp(1.8rem,4vw,2.4rem);
+    font-weight: 800;
+}
+
+.section p {
+    max-width: 48rem;
+    margin: 1rem auto 0;
+    color: var(--text-secondary);
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    margin: 1.5rem auto 2.5rem;
+    background: var(--gradient-purple);
+    border-radius: 999px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 1.5rem;
+    border-radius: .75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+.btn-primary {
+    background: var(--gradient-purple);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+.btn-outline {
+    border: 2px solid var(--border-strong);
+    color: var(--text-primary);
+}
+.btn-outline:hover { background: var(--glass); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.topbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 1.25rem 1.75rem;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,.35);
+    border-bottom: 1px solid var(--border-soft);
+    z-index: 10;
+}
+.topbar img { height: 2.2rem; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 1.5rem 60px;
+    text-align: center;
+}
+.hero::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(to bottom,rgba(15,20,25,.7),rgba(26,31,46,.9)),
+        url("heromain.svg") center/cover;
+    z-index:-1;
+}
+.hero h1 {
+    font-size: clamp(2.6rem,6vw,4.6rem);
+    line-height: 1.1;
+}
+.hero p { font-size: 1.2rem; }
+.hero-actions { margin-top: 2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+.benefits {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+@media (min-width: 768px) {
+    .benefits { grid-template-columns: repeat(3,1fr); }
+}
+.benefit {
+    background: var(--glass);
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: .2s;
+}
+.benefit:hover { transform: translateY(-4px); }
+.benefit .material-icons {
+    font-size: 2.4rem;
+    background: var(--gradient-purple);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ============================================================
+   HOW IT WORKS – FLOATING STEPS (NO CARDS)
+   ============================================================ */
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+
+    max-width: 1100px;
+    margin: 3.5rem auto 0;
+}
+
+/* Step wrapper (no card visuals) */
+.how-card {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Illustration */
+.how-card img {
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 1.5rem;
+
+    /* optional subtle lift */
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.25));
+}
+
+/* Heading */
+.how-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+/* Copy */
+.how-card p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .how-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+
+
+/* ============================================================
+   SETUP
+   ============================================================ */
+.setup {
+    background: var(--glass);
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: 1.5rem;
+    padding: 4rem 2rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+.setup-grid {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+.setup ol { text-align: left; max-width: 24rem; }
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+
+/* ============================================================
+   REVIEWS – EDITORIAL WITH PURPLE ACCENT
+   ============================================================ */
+
+.testimonials {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+@media (min-width:640px) {
+    .testimonials { grid-template-columns: repeat(2,1fr); }
+}
+
+.testimonial {
+    position: relative;
+    padding-left: 1.25rem;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Purple accent bar */
+.testimonial::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+        to bottom,
+        var(--purple-400),
+        var(--purple-600)
+    );
+}
+
+/* Subtle opening quote */
+.testimonial::after {
+    content: "“";
+    position: absolute;
+    left: -0.5rem;
+    top: -0.75rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--purple-500);
+    opacity: 0.15;
+    font-style: normal;
+}
+
+/* Attribution */
+.testimonial span {
+    display: block;
+    margin-top: .75rem;
+    font-style: normal;
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    padding: 4.5rem 1.5rem 3.5rem;
+    text-align: center;
+    background: linear-gradient(to bottom,transparent,var(--bg-darkest));
+    border-top: 1px solid var(--border-soft);
+}
+footer p { font-size:.85rem; color:var(--text-muted); }
+
 </style>
 </head>
 
