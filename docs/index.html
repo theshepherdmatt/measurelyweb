@@ -353,6 +353,69 @@ header, section, footer { position: relative; z-index: 1; }
 }
 
 /* ============================================================
+   COMMUNITY
+   ============================================================ */
+
+.community {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(139,92,246,0.06),
+        transparent
+    );
+}
+
+.community-grid {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+    .community-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.community-card {
+    background: var(--glass);
+    border: 1px solid var(--border-soft);
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.75rem;
+    box-shadow: var(--shadow-md);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.community-card .material-icons {
+    font-size: 2.6rem;
+    margin-bottom: 0.75rem;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.community-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.community-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.community-actions {
+    margin-top: 3.5rem;
+}
+
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
@@ -507,6 +570,53 @@ footer p { font-size:.85rem; color:var(--text-muted); }
         </div>
     </div>
 </section>
+
+<section class="section section--centered community">
+    <h2>You’re not doing this alone</h2>
+    <div class="divider"></div>
+
+    <p>
+        Measurely doesn’t stop at the measurement.
+        Share your results, ask questions, and learn from other people
+        improving real rooms on real systems.
+    </p>
+
+    <div class="community-grid">
+        <div class="community-card">
+            <span class="material-icons">graphic_eq</span>
+            <h3>Share your room</h3>
+            <p>
+                Upload sweeps, screenshots, and measurements.
+                See how others tackled similar rooms and setups.
+            </p>
+        </div>
+
+        <div class="community-card">
+            <span class="material-icons">school</span>
+            <h3>Learn what actually works</h3>
+            <p>
+                Plain-English advice from people who’ve tried it.
+                No theory wars. No golden-ear nonsense.
+            </p>
+        </div>
+
+        <div class="community-card">
+            <span class="material-icons">groups</span>
+            <h3>Get help if you want it</h3>
+            <p>
+                Use Discord for quick feedback or Facebook for slower discussion.
+                Same community — your choice.
+            </p>
+        </div>
+    </div>
+
+    <div class="community-actions">
+        <a href="community.html" class="btn btn-primary">
+            Explore the Measurely community
+        </a>
+    </div>
+</section>
+
 
 <footer>
     <div style="max-width:600px; margin:0 auto">
