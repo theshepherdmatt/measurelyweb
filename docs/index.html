@@ -75,6 +75,7 @@ body::before {
 
 header, section, footer { position: relative; z-index: 1; }
 
+
 /* ============================================================
    PRIMITIVES
    ============================================================ */
@@ -356,14 +357,33 @@ header, section, footer { position: relative; z-index: 1; }
    COMMUNITY
    ============================================================ */
 
+/* Community background should be FULL-WIDTH (no boxed edges) */
 .community {
+    background: none;
+}
+
+.section.community {
+    position: relative;
+}
+
+.section.community::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
     background: linear-gradient(
         to bottom,
         transparent,
         rgba(139,92,246,0.06),
         transparent
     );
+    pointer-events: none;
+    z-index: -1;
 }
+
 
 .community-grid {
     display: grid;
@@ -420,11 +440,30 @@ header, section, footer { position: relative; z-index: 1; }
    ============================================================ */
 
 .site-footer{
+    position: relative;
     padding: 4.5rem 1.5rem 3.5rem;
     text-align: center;
-    background: linear-gradient(to bottom, transparent, var(--bg-darkest));
+    background: none;
     border-top: 1px solid var(--border-soft);
 }
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        to bottom,
+        rgba(15,20,25,0),
+        var(--bg-darkest)
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
 
 .footer-inner{
     max-width: 600px;
@@ -439,6 +478,7 @@ header, section, footer { position: relative; z-index: 1; }
 .footer-brand{
     margin-bottom: .25rem;
 }
+
 
 .footer-text{
     color: var(--text-secondary);
@@ -461,6 +501,9 @@ header, section, footer { position: relative; z-index: 1; }
     text-decoration: underline;
 }
 
+.site-footer {
+    margin-bottom: 0;
+}
 
 
 </style>
@@ -485,27 +528,44 @@ header, section, footer { position: relative; z-index: 1; }
 <section class="section section--centered">
     <h2>What is Measurely?</h2>
     <div class="divider"></div>
-      <p>Measurely helps you understand how your listening room shapes your sound.
-      It highlights what’s working well and where simple changes may be worth considering.
+    <p>
+        Measurely measures how your listening room shapes your sound,
+        then explains the results in plain English using the Measurely Co-Pilot.
+        It shows what’s working, what isn’t, and which changes are actually worth considering.
+    </p>
+</section>
+
 <section class="section section--centered">
     <div class="benefits">
         <div class="benefit">
-            <span class="material-icons">cloud_off</span>
-            <h3>No cloud needed</h3>
-            <p>Runs entirely offline.</p>
+            <span class="material-icons">psychology</span>
+            <h3>Measurely Co-Pilot</h3>
+            <p>
+                Your results are interpreted by the Measurely engine,
+                turning raw measurements into clear, practical next steps.
+            </p>
         </div>
+
         <div class="benefit">
             <span class="material-icons">forum</span>
             <h3>Clear explanations</h3>
-            <p>No jargon. Just guidance.</p>
+            <p>
+                No jargon, no theory dumps.
+                Just straight explanations you can actually understand and act on.
+            </p>
         </div>
+
         <div class="benefit">
             <span class="material-icons">savings</span>
             <h3>Real savings</h3>
-            <p>Fix the room, not the gear.</p>
+            <p>
+                Understand the room before spending money.
+                Often the fix is placement, not another upgrade.
+            </p>
         </div>
     </div>
 </section>
+
 
 <section id="how" class="section section--centered">
     <h2>How it works</h2>
@@ -514,7 +574,9 @@ header, section, footer { position: relative; z-index: 1; }
     Measurely is a simple hire service. We send you the full kit, you measure your room at home,
     follow a few clear recommendations, then send it back using the prepaid label.
        <br>
-    No commitment, no pressure, just clarity.<br/>
+    No commitment, no pressure — just clear results,
+    explained by the Measurely Co-Pilot.
+    <br/>
     </p>   
 
     <div class="how-grid">
@@ -550,8 +612,14 @@ header, section, footer { position: relative; z-index: 1; }
 
 
 <section class="section setup">
-    <h2>Simple, no-internet setup</h2>
+    <h2>Simple setup, no technical fuss</h2>
     <div class="divider"></div>
+
+    <p style="max-width:42rem; margin:0 auto 2.5rem; color:var(--text-secondary);">
+        The measurement runs locally on the device.
+        Once complete, your results can be interpreted by the Measurely Co-Pilot
+        to provide clearer, more useful guidance.
+    </p>
 
     <div class="setup-grid">
         <img src="qrcode.svg" width="160" alt="Measurely setup QR code">
@@ -568,6 +636,7 @@ header, section, footer { position: relative; z-index: 1; }
         </ol>
     </div>
 </section>
+
 
 
 <section class="section section--centered">
